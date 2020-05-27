@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 #This is a midi remote script for the Ohm64 by Michael Chenetz
 #Modified by MARIO GUIDA (www.marioguida.org)
 from __future__ import absolute_import, print_function, unicode_literals, with_statement
