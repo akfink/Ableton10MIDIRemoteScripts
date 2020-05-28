@@ -1,5 +1,7 @@
 # AKF custom script for M-Audio Oxygen 61 (blue)
-# NOTE: Script assumes MIDI mapping for factory preset 10, with DirectLink disabled (somehow...)
+# NOTE: Script assumes MIDI mapping for factory preset 10, except with Buttons C1-C9 changed to toggle by removing CTRL ASSN = 146.
+
+
 
 from __future__ import absolute_import, print_function, unicode_literals, with_statement
 import Live # This allows us (and the Framework methods) to use the Live API on occasion
@@ -25,15 +27,18 @@ from _Framework.SliderElement import SliderElement # Class representing a slider
 from _Framework.TransportComponent import TransportComponent # Class encapsulating all functions in Live's transport section
 from _Framework.EncoderElement import EncoderElement
 from _Framework.DeviceComponent import DeviceComponent
+from _Framework.CompoundElement import CompoundElement
+from _Framework.ControlElement import ControlElement
+#todo: remove unused classes
 
 """ Here we define some global variables """
 CHANNEL = 15 # Channels are numbered 0 through 15, this script only makes use of one MIDI Channel (Channel 1)
 session = None #Global session object - global so that we can manipulate the same session object from within our methods
 mixer = None #Global mixer object - global so that we can manipulate the same mixer object from within our methods
 
-class AKF_Oxy61(ControlSurface):
+class AKF_Oxy49(ControlSurface):
     __module__ = __name__
-    __doc__ = "MAudio Oxygen 61 MIDI Remote script "
+    __doc__ = "MAudio Oxygen 49 MIDI Remote script "
 
     def __init__(self, c_instance):
         with self.component_guard():
@@ -61,5 +66,6 @@ class AKF_Oxy61(ControlSurface):
             self._setup_mixer_control() # Setup the mixer object
             self._setup_session_control()  # Setup the session object
 
-
             self.set_suppress_rebuild_requests(False) # Turn rebuild back on, once we're done setting up
+
+    def
