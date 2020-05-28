@@ -27,7 +27,7 @@ from _Framework.EncoderElement import EncoderElement
 from _Framework.DeviceComponent import DeviceComponent
 from _Framework.CompoundElement import CompoundElement
 from _Framework.ControlElement import ControlElement
-from compound_element import compound_element
+#from compound_element import compound_element
 
 
 """ Here we define some global variables """
@@ -35,9 +35,9 @@ CHANNEL = 15 # Channels are numbered 0 through 15, this script only makes use of
 session = None #Global session object - global so that we can manipulate the same session object from within our methods
 mixer = None #Global mixer object - global so that we can manipulate the same mixer object from within our methods
 
-class AKF_Oxy61(ControlSurface, ControlElement, CompoundElement, compound_element):
+class AKF_Oxy49(ControlSurface, ControlElement, CompoundElement):
     __module__ = __name__
-    __doc__ = "MAudio Oxygen 61 MIDI Remote script "
+    __doc__ = "MAudio Oxygen 49 MIDI Remote script "
 
     def __init__(self, c_instance):
         with self.component_guard():
@@ -51,8 +51,8 @@ class AKF_Oxy61(ControlSurface, ControlElement, CompoundElement, compound_elemen
             self._suggested_input_port = 'Oxygen'
             self._suggested_output_port = 'Oxygen'
             self._has_slider_section = True
-            self._shift_button = ButtonElement(is_momentary, MIDI_CC_TYPE, GLOBAL_CHANNEL, 57)
-            self._shift_button.add_value_listener(self._shift_value)
+            # self._shift_button = ButtonElement(is_momentary, MIDI_CC_TYPE, GLOBAL_CHANNEL, 57)
+            # self._shift_button.add_value_listener(self._shift_value)
             self._mixer = SpecialMixerComponent(NUM_TRACKS)
             self._mute_solo_buttons = []
             self._track_up_button = ButtonElement(is_momentary, MIDI_CC_TYPE, GLOBAL_CHANNEL, 111)
@@ -68,7 +68,7 @@ class AKF_Oxy61(ControlSurface, ControlElement, CompoundElement, compound_elemen
 
             self._set_suppress_rebuild_requests(False) # Turn rebuild back on, once we're done setting up
 
-            self._shift_value(0)
+            # self._shift_value(0)
             self._mixer.master_strip().set_volume_control(self._master_slider)
             self._mixer.selected_strip().set_volume_control(None)
             device = DeviceComponent(device_selection_follows_track_selection=True)
@@ -103,18 +103,18 @@ class AKF_Oxy61(ControlSurface, ControlElement, CompoundElement, compound_elemen
                 self._mixer.selected_strip().set_volume_control(self._master_slider)
         return
 
-    def _shift_value(self, value):
-        assert value in range(128)
-        for index in range(NUM_TRACKS):
-            if value == 0:
-                self._mixer.channel_strip(index).set_solo_button(None)
-                self._mixer.channel_strip(index).set_mute_button(self._mute_solo_buttons[index])
-                self._mixer.set_bank_buttons(None, None)
-                self._mixer.set_select_buttons(self._track_up_button, self._track_down_button)
-            else:
-                self._mixer.channel_strip(index).set_mute_button(None)
-                self._mixer.channel_strip(index).set_solo_button(self._mute_solo_buttons[index])
-                self._mixer.set_select_buttons(None, None)
-                self._mixer.set_bank_buttons(self._track_up_button, self._track_down_button)
-
-        return
+    # def _shift_value(self, value):
+    #     assert value in range(128)
+    #     for index in range(NUM_TRACKS):
+    #         if value == 0:
+    #             self._mixer.channel_strip(index).set_solo_button(None)
+    #             self._mixer.channel_strip(index).set_mute_button(self._mute_solo_buttons[index])
+    #             self._mixer.set_bank_buttons(None, None)
+    #             self._mixer.set_select_buttons(self._track_up_button, self._track_down_button)
+    #         else:
+    #             self._mixer.channel_strip(index).set_mute_button(None)
+    #             self._mixer.channel_strip(index).set_solo_button(self._mute_solo_buttons[index])
+    #             self._mixer.set_select_buttons(None, None)
+    #             self._mixer.set_bank_buttons(self._track_up_button, self._track_down_button)
+    #
+    #     return
