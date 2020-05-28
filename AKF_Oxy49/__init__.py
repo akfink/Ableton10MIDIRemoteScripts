@@ -5,8 +5,8 @@
 # Embedded file name: /Users/versonator/Jenkins/live/output/mac_64_static/Release/python-bundle/MIDI Remote Scripts/Oxygen49_61/__init__.py
 # Compiled at: 2019-04-09 19:23:44
 from __future__ import absolute_import, print_function, unicode_literals, with_statement
-from AKF_Oxy61 import AKF_Oxy61
+from AKF_Oxy49 import AKF_Oxy49
 
 def create_instance(c_instance):
     """ Creates and returns the NanoKontrol script """
-    return AKF_Oxy61(c_instance)
+    return AKF_Oxy49(c_instance)
