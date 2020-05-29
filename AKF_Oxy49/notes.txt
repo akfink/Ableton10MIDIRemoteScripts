@@ -1,0 +1,3 @@
+Custom script for Oxy49 2nd gen. This supercedes preliminary work done on AKF_Oxygen49_61.
+
+Reminder: Change permissions to 755
