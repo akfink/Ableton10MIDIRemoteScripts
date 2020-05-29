@@ -42,7 +42,7 @@ class AKF_Oxy49(ControlSurface, ControlElement, CompoundElement):
     def __init__(self, c_instance):
         with self.component_guard():
             ControlSurface.__init__(self, c_instance)
-            self.log_message(time.strftime("%d.%m.%Y %H:%M:%S", time.localtime()) + "+ + ========= AKF_Oxy61 log opened ========= + +")
+            self.log_message(time.strftime("%d.%m.%Y %H:%M:%S", time.localtime()) + "+ + ========= AKF_Oxy49 log opened ========= + +")
             # Writes message into Live's main log file. This is a ControlSurface method.
             self._set_suppress_rebuild_requests(True) # Turn off rebuild MIDI map until after we're done setting up
 

@@ -1,2 +1,6 @@
 .DS_Store
+<<<<<<< HEAD
 .DS_Store
+=======
+/venv/bin/pip2
+>>>>>>> a9961eea4059141b2ec4a090218f477edf3af592
